@@ -1,0 +1,20 @@
+{
+  "name": "arc-and-inte",
+  "version": "1.0.0",
+  "description": "A project for handling contact submissions",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "mysql": "^2.18.1",
+    "nodemailer": "^6.10.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs"
+}

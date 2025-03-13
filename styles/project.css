@@ -1,0 +1,109 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background-color: rgb(0, 0, 0);
+  }
+  #loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
+  
+  #loading video {
+    width: 100%; /* Adjust the size of the 3D icon video */
+    height:100%;
+  }
+  
+
+  header {
+    background-color: rgba(238, 234, 234, 0.232);
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: right;
+    margin-right:40px;
+    padding: 0;
+  }
+  
+  nav ul li {
+    margin: 0 15px;
+  }
+  
+  nav a {
+    text-decoration: none;
+    color: rgb(255, 253, 253);
+    font-weight: bold;
+  }
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 90px;
+  }
+  
+  .gallery-item {
+    text-align: center;
+  }
+  
+  .gallery-item img {
+    width: 90%;
+    height: 50vh;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+  }
+  
+  
+  .gallery-item img:hover {
+    transform: scale(1.05);
+  }
+  
+  .gallery-item h3 {
+    margin-top: 10px;
+    font-size: 16px;
+    color: #fffdfd;
+    text-transform: uppercase;
+  }
+
+  /* Preloader Styling */
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease-out;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid rgba(255, 255, 255, 0.1);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

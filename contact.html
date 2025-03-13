@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link rel="stylesheet" href="styles/contact.css">
+</head>
+<body>
+  <div class="preloader" id="preloader">
+    <div class="spinner"></div>
+  </div>
+
+  <header>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="project.html" target="_blank">Projects</a></li>
+        <li><a href="blog.html" target="_blank">Blog</a></li>
+        <li><a href="contact.html" target="_blank">Contact Us</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="contact-container">
+    <h1>CONTACT</h1>
+    <div class="contact-details">
+      <p>Mampad<br>Malappuram<br>Kerala, INDIA</p>
+      <p>Tel: 8921252868</p>
+      <p>Email: <a href="mailto:sj.arc.design@example.com">sj.arc.design@example.com</a></p>
+    </div>
+
+    <form class="contact-form">
+      <input type="text" name="name" placeholder="Name *" required>
+      <input type="email" name="email" placeholder="Email *" required>
+      <input type="tel" name="phone" placeholder="Phone Number">
+      <textarea name="message" placeholder="Message *" required></textarea>
+      <button type="submit">SUBMIT</button>
+    </form>
+
+    <div class="social-media">
+      <a href="https://facebook.com" target="_blank">whatsapp</a>
+      <a href="https://twitter.com" target="_blank">Twitter</a>
+      <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+      <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+  </main>
+
+  <script src="script/preloader.js"></script>
+  
+  <!-- JavaScript Form Submission using AJAX -->
+  <script>
+    document.querySelector(".contact-form").addEventListener("submit", async function(event) {
+      event.preventDefault(); // Prevent default form submission
+
+      let formData = {
+        name: document.querySelector("input[name='name']").value.trim(),
+        email: document.querySelector("input[name='email']").value.trim(),
+        phone: document.querySelector("input[name='phone']").value.trim(),
+        message: document.querySelector("textarea[name='message']").value.trim()
+      };
+
+      if (!formData.name || !formData.email || !formData.message) {
+        alert("Please fill in all required fields!");
+        return;
+      }
+
+      // Send form data to Node.js backend
+      let response = await fetch("http://localhost:3000/submit-contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      let result = await response.json();
+      if (result.success) {
+        alert("You have submitted successfully!");
+        document.querySelector(".contact-form").reset();
+      } else {
+        alert("Error: " + result.error);
+      }
+    });
+  </script>
+
+</body>
+</html>
